@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_29_150315) do
+ActiveRecord::Schema.define(version: 2023_07_30_104010) do
+
+  create_table "schedules", charset: "utf8mb4", force: :cascade do |t|
+    t.string "content"
+    t.datetime "start_datetime"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -20,4 +29,5 @@ ActiveRecord::Schema.define(version: 2023_07_29_150315) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "schedules", "users"
 end

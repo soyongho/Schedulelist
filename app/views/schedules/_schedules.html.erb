@@ -1,0 +1,10 @@
+<% if schedules.any? %>
+  <ul class="list-unstyled mt-2">
+    <% schedules.each do |schedule| %>
+      <li>
+        <p><%= schedule.content %></p>
+      </li>
+    <% end %>
+  </ul>
+  <%== pagy_bootstrap_nav(@pagy) %>
+<% end %>
