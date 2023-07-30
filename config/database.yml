@@ -49,7 +49,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
- adapter: postgresql
+  adapter: postgresql
   encoding: unicode
   pool: 5
   database: schedulelist_production
