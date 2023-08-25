@@ -1,2 +1,17 @@
-<h1>Schedules#edit</h1>
-<p>Find me in app/views/schedules/edit.html.erb</p>
+<h1>スケジュール編集ページ</h1>
+
+<div class="d-flex">
+  <div>
+  <%= form_with(model: @schedule) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+  
+      <%= f.text_field :content %>
+      <%= f.datetime_field :start_datetime %>
+      <%= f.datetime_field :finish_datetime %>
+      <%= f.submit '登録' %>
+  <% end %>
+  </div>
+  <div>
+    <%= link_to "削除", @schedule, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+  </div>
+</div>

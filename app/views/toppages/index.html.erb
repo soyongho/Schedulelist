@@ -1,15 +1,24 @@
 <% if logged_in? %>
   <div class="row">
+    <div class="col-sm-1"></div>
     <aside class="col-sm-4">
       <%= form_with(model: @schedule) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+        
         <div class="mb-3">
           <%= f.text_area :content, class: 'form-control', rows: 5 %>
         </div>
-        <%= f.submit 'Post', class: 'btn btn-primary w-100' %>
+        <div class="mb-3">
+          <%= f.datetime_field :start_datetime %>
+        </div>
+        <div class="mb-3">
+          <%= f.datetime_field :finish_datetime %>
+        </div> 
+        <%= f.submit '登録', class: 'btn btn-primary w-100' %>
       <% end %>
     </aside>
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-5">
       <%= render 'schedules/schedules', schedules: @schedules %>
     </div>
   </div>
