@@ -1,7 +1,7 @@
 <% if schedules.any? %>
   <ul class="list-unstyled mt-2">
     <% schedules.each do |schedule| %>
-      <li><%= link_to schedule.id, edit_schedule_path(schedule) %> : <%= schedule.start_datetime %> : <%= schedule.content %> </li>
+      <li><%= schedule.start_datetime.strftime("%m-%d %H:%M") %> ~ <%= schedule.finish_datetime.strftime("%m-%d %H:%M") %> : <%= link_to schedule.content , edit_schedule_path(schedule) %> </li>
     <% end %>
   </ul>
   <%== pagy_bootstrap_nav(@pagy) %>

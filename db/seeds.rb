@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+30.times do |number|
+  start_start_day = DateTime.new(2023, 9, 1, 0, 0)
+  start_end_day = DateTime.new(2023, 9, 30, 0, 0)
+  end_start_day = DateTime.new(2024, 9, 1, 0, 0)
+  end_end_day = DateTime.new(2024, 9, 30, 0, 0)
+  Schedule.create(
+    user_id: 1,
+    start_datetime: Random.rand(start_start_day..start_end_day),
+    finish_datetime: Random.rand(end_start_day..end_end_day),
+    content: 'test_content' + number.to_s
+  )
+end

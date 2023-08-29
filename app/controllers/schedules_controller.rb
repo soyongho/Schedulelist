@@ -7,7 +7,7 @@ class SchedulesController < ApplicationController
       flash[:success] = 'スケジュールを登録しました。'
       redirect_to root_url
     else
-      @pagy, @schedules = pagy(current_user.schedules.order(start_datetime: :asc))
+      @pagy, @schedules = pagy(current_user.schedules.order(start_datetime: :asc), item: 30)
       flash.now[:danger] = 'スケジュールの登録に失敗しました。'
       render 'toppages/index'
     end
@@ -32,7 +32,6 @@ class SchedulesController < ApplicationController
       flash[:success] = 'スケジュールは正常に更新されました'
       redirect_to root_url
     else
-      flash.now[:danger] = 'スケジュールは更新されませんでした'
       render :edit
     end
   end
